@@ -7,6 +7,8 @@ class Block extends MonoBehaviour {
 	var directionZ : int;
 	var is_selected : boolean;
 	var tmpTime : float;
+	private var myMaterial : Material;
+	public var changeMaterial : Material;
 
 	function Start () {
 		speed = 0.1f;
@@ -19,6 +21,8 @@ class Block extends MonoBehaviour {
 			directionX = 0;
 			directionZ = 1;
 		}
+		myMaterial = this.GetComponent.<Renderer>().material;
+
 	}
 
 	function Update () {
@@ -30,9 +34,13 @@ class Block extends MonoBehaviour {
 
 	function TransferConstantly(){
 		transferAnimation();
-		RotateByGyro(Random.Range(-1f,1f), Random.Range(89f,91f), Random.Range(-1f,1f));
+		if(directionZ == 1){
+			RotateByGyro(Random.Range(-1f,1f), Random.Range(-0.1f,0.1f), Random.Range(-1f,1f));
+		}else if(directionX == 1){
+			RotateByGyro(Random.Range(-1f,1f), Random.Range(89f,91f), Random.Range(-1f,1f));
+		}
 	}
-
+	//ジャイロによって回転するメソッド
 	function RotateByGyro(rx,ry,rz){
 		this.transform.rotation = Quaternion.Euler(rx, ry, rz);
 	}
@@ -63,4 +71,10 @@ class Block extends MonoBehaviour {
 		this.transform.position += new Vector3(speed * directionX, 0, speed * directionZ);
 	}
 
+	function ChangeMaterialNew(){
+		this.GetComponent.<Renderer>().material = changeMaterial;
+	}
+	function ChangeMaterialBefore(){
+		this.GetComponent.<Renderer>().material = myMaterial;
+	}
 }
