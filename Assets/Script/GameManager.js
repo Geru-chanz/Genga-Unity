@@ -1,9 +1,14 @@
 ﻿#pragma strict
 
-function Start () {
-	
-}
+class GameManager extends MonoBehaviour {
 
-function Update () {
-	
+	var block : GameObject;
+	function Start(){
+		block = GameObject.FindWithTag("Block");
+//		BlockSelect();
+	}
+
+	function BlockSelect(){
+		block.GetComponent.<Block>().ReverseSelectFlg();
+	}
 }

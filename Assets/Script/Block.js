@@ -1,34 +1,52 @@
 ﻿#pragma strict
 
 class Block extends MonoBehaviour {
-	static private var hensu_a : int;	//他のクラスから直接アクセス不可
-	var myBlock :GameObject;
+	var ID : int;
 	var speed : float;
+	var directionX : int;
+	var directionZ : int;
+	var is_selected : boolean;
 
-
-function Start () {
-	Debug.Log("sajkdflksjfk");
-	speed = 0.1f;
-	myBlock = GameObject.Find("");
-}
-
-function Update () {
-	
-}
-
-function TransferConstantly(){
-
-//	myBlock.transform.position += speed * Time.deltaTime;
-}
-
-
-	//変数読み込みメソッド
-	static public function getMesodo() : int {
-		return hensu_a;
+	function Start () {
+		speed = 0.1f;
+		is_selected = false;
+		if(ID%6 > 3 || ID%6 ==0){
+			directionX = 1;
+			directionZ = 0;
+		}else{
+			directionX = 0;
+			directionZ = 1;
+		}
 	}
 
-	//変数書き込みメソッド
-	static public function putMesodo(work:int) {
-		hensu_a = work;
+	function Update () {
+		if(is_selected == true){
+			TransferConstantly();
+			//	RotateByGyro(10, 0, -10);
+		}
 	}
+
+	function TransferConstantly(){
+		
+		this.transform.position += new Vector3(speed * directionX, 1, speed * directionZ);
+	}
+
+	function RotateByGyro(x,y,z){
+		this.transform.rotation = Quaternion.Euler(x, y, z);
+	}
+
+	function ReverseSelectFlg(){
+		this.is_selected = !(this.is_selected);
+//		Debug.Log(this.is_selected + ":aaaa");
+
+	}
+
+	function SetID(id){
+		this.ID = id;
+	}
+
+	function GetID(){
+		return this.ID;
+	}
+
 }
