@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "genga_test1.data.unityweb",
+"asmCodeUrl": "genga_test1.asm.code.unityweb",
+"asmMemoryUrl": "genga_test1.asm.memory.unityweb",
+"asmFrameworkUrl": "genga_test1.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
