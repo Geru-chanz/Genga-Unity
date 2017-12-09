@@ -6,17 +6,16 @@ public class EchoTest : MonoBehaviour {
 
 	// Use this for initialization
 	IEnumerator Start () {
-		WebSocket w = new WebSocket(new Uri("wss://genga-rp7rf.c9users.io"));
+		WebSocket w = new WebSocket(new Uri("ws://genga-rp7rf.c9users.io"));
 		yield return StartCoroutine(w.Connect());
-		w.SendString("Hi there");
-		int i=0;
+		w.SendString("Waiting!!!!!!!!");
 		while (true)
 		{
 			string reply = w.RecvString();
 			if (reply != null)
 			{
 				Debug.Log ("Received: "+reply);
-				w.SendString("Hi there"+i++);
+				w.SendString("Waiting");
 			}
 			if (w.error != null)
 			{
