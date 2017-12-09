@@ -6,20 +6,20 @@ class Block extends MonoBehaviour {
 	var speed : float;
 
 
-function Start () {
-	Debug.Log("sajkdflksjfk");
-	speed = 0.1f;
-	myBlock = GameObject.Find("");
-}
+	function Start () {
+		Debug.Log("sajkdflksjfk");
+		speed = 0.1f;
+		myBlock = GameObject.Find("");
+	}
 
-function Update () {
-	
-}
+	function Update () {
+		
+	}
 
-function TransferConstantly(){
+	function TransferConstantly(){
 
-//	myBlock.transform.position += speed * Time.deltaTime;
-}
+	//	myBlock.transform.position += speed * Time.deltaTime;
+	}
 
 
 	//変数読み込みメソッド
