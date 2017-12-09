@@ -9,11 +9,12 @@ class moveCamera extends MonoBehaviour {
     public var UpDownSpeed = 0.01f;
 
 	function Start () {
-		Debug.Log("sajkdflksjfk");
+//		Debug.Log("sajkdflksjfk");
 	}
 	var rotatetarget:Transform;
 	var xspeed:float = 100;
 	var yspeed:float = 100;
+	public var mousePosText : UI.Text;
 
 	private var sx:float;
 	private var sy:float;
@@ -29,6 +30,8 @@ class moveCamera extends MonoBehaviour {
 			//Input Mouse position
 			sx = Input.mousePosition.x;
 			sy = Input.mousePosition.y;
+			mousePosText.text = sx.ToString() + "：" + sy.ToString();
+
 		}
 		//Drag
 		if(Input.GetMouseButton(0)) {

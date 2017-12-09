@@ -28,7 +28,7 @@ class Block extends MonoBehaviour {
 
 	function TransferConstantly(){
 		
-		this.transform.position += new Vector3(speed * directionX, 1, speed * directionZ);
+		this.transform.position += new Vector3(speed * directionX, 0, speed * directionZ);
 	}
 
 	function RotateByGyro(x,y,z){
